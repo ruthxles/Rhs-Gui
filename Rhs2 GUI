@@ -1,0 +1,85 @@
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local Window = Library.CreateLib("Roblox High School 2 Gui", "DarkTheme")
+
+-- MAIN
+local Main = Window:NewTab("Main")
+local MainSection = Main:NewSection("Chef Umbra")
+
+
+MainSection:NewButton("Chef Umbra (SPAM CLICK", "ez exp lol", function()
+    Game.ReplicatedStorage.Remotes.Jobs.ChefUmbras.SectionCompleted:FireServer("6ECA3443-300E-494D-1E56FBBD2D347")  
+end)
+
+
+local MainSection = Main:NewSection("Super-Human")
+MainSection:NewToggle("Super-Human", "sped", function(state)
+    if state then
+        Game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 120
+        Game.Players.LocalPlayer.Character.Humanoid.JumpPower = 120
+    else
+        Game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 16
+        Game.Players.LocalPlayer.Character.Humanoid.JumpPower = 50
+    end
+end)
+
+-- Sunblox Cafe
+local SunbloxSection = Main:NewSection("Sunblox Cafe")
+SunbloxSection:NewButton("Sunblox Cafe (SPAM CLICK)", "autofarm xd", function()
+    for i, v in pairs(game.Workspace.LightBeam:GetChildren()) do
+        if v.Name == "Pos" then
+            humanoid.CFrame = v.CFrame
+            wait(0.1)
+        end
+    end
+end)
+
+-- Local Player
+local Player = Window:NewTab("LocalPlayer")
+local PlayerSection = Player:NewSection("Player")
+
+PlayerSection:NewSlider("Walkspeed", "changes your players speed", 500, 16, function(s) -- 500 (MaxValue) | 0 (MinValue)
+    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
+end)
+
+PlayerSection:NewSlider("Jumppower", "changes your players jumppower(obvi)", 350, 50, function(s) -- 500 (MaxValue) | 0 (MinValue)
+    game.Players.LocalPlayer.Character.Humanoid.Jumppower = s
+end)
+
+
+-- Admin
+local AdminSection = Window:NewTab("Admin")
+local AdminSection = AdminSection:NewSection("Admin")
+
+AdminSection:NewButton("Infinite Yield", "Fe Admin Commands", function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+end)
+
+
+-- Misc
+local MiscSection = Window:NewTab("Misc")
+local MiscSection = MiscSection:NewSection("Misc")
+
+MiscSection:NewButton("Car Stat Changer(BE IN CAR)", "sick stuff", function()
+    local ve = require(workspace:FindFirstChild('!vehicle_'..game:GetService'Players'.LocalPlayer.Name).VehicleStats)
+
+ ve.GravityAcceleration = 30
+ ve.SteeringRateExponent = 1
+ ve.IdleSoundRatio = 0.01
+ ve.OverspeedDeceleration = 100
+ ve.SteeringRateMin = 1.75
+ ve.SteeringDrag = 0.1
+ ve.CoastingDeceleration = 10
+ ve.WheelcutExponent = 1
+ ve.PowerCurveExponent = 1.2
+ ve.MaxSpeedReverse = 80
+ ve.IdleSoundStart = 1
+ ve.BVPower = 50000
+ ve.WheelcutMin = 0.06
+ ve.WheelcutMax = 0.3
+ ve.MaxSpeed = 500
+ ve.SteeringRateMax = 2.5
+ ve.BAPower = 500000
+ ve.ReverseBeep = true
+ ve.Braking = 500
+ ve.Acceleration = 100
+end)
